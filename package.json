@@ -1,7 +1,7 @@
 {
   "name": "simple-orchestration-js",
-  "version": "0.0.1",
-  "description": "",
+  "version": "0.1.0",
+  "description": "Simple wrapper around Etcd to help with the registration/discovery of distributed services and configuration",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,7 +10,14 @@
     "type": "git",
     "url": "git+https://github.com/MattCollins84/simple-orchestration-js.git"
   },
-  "author": "",
+  "keywords": [
+    "etcd",
+    "orchestration",
+    "services",
+    "configuration",
+    "distributed"
+  ],
+  "author": "Matt Collins <matt@strikesandgutters.com>",
   "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/MattCollins84/simple-orchestration-js/issues"

@@ -14,6 +14,10 @@ module.exports = function(opts) {
 	const url = opts.url || null;
 	delete opts.url
 
+	if (!url) {
+		return require('./lib/spoof.js')
+	}
+
 	const etcd = new Etcd(url, opts);
 
 	return {
