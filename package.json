@@ -1,5 +1,5 @@
 {
-  "name": "simple-orchestration-js",
+  "name": "simple-service-registry",
   "version": "0.1.0",
   "description": "Simple wrapper around Etcd to help with the registration/discovery of distributed services and configuration",
   "main": "index.js",
@@ -8,21 +8,22 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MattCollins84/simple-orchestration-js.git"
+    "url": "git+https://github.com/MattCollins84/simple-service-registry.git"
   },
   "keywords": [
     "etcd",
-    "orchestration",
+    "registry",
     "services",
     "configuration",
-    "distributed"
+    "distributed",
+    "discovery"
   ],
   "author": "Matt Collins <matt@strikesandgutters.com>",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/MattCollins84/simple-orchestration-js/issues"
+    "url": "https://github.com/MattCollins84/simple-service-registry/issues"
   },
-  "homepage": "https://github.com/MattCollins84/simple-orchestration-js#readme",
+  "homepage": "https://github.com/MattCollins84/simple-service-registry#readme",
   "dependencies": {
     "node-etcd": "^5.0.3",
     "underscore": "^1.8.3"

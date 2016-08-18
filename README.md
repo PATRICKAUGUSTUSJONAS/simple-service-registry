@@ -1,17 +1,17 @@
-# simple-orchestration-js
+# Simple Service Registry
 
-This module is a wrapper around [Etcd](https://github.com/coreos/etcd), designed to assist with the orchestration of distributed services and configuration.
+This module is a wrapper around [Etcd](https://github.com/coreos/etcd), designed to assist with the registration and discovery of consumable microservices and associated configuration.
 
 ## Installation and Setup
 
-To install, `npm install simple-orchestration-js`.
+To install, `npm install simple-service-registry`.
 
 To use:
 
 ```javascript
-const SO = require('simple-orchestration-js')
+const Registry = require('simple-service-registry')
 
-const so = return new SO({ 
+const r = return new Registry({ 
 	url: <Host of Etcd instance>
 })
 ```
@@ -22,9 +22,9 @@ This module uses [request](https://github.com/request/request) under the hood so
 If you are using Etcd via [Compose](http://www.compose.com) and want to use the supplied SSL certificate you can do:
 
 ```javascript
-const SO = require('simple-orchestration-js')
+const Registry = require('simple-service-registry')
 
-const so = return new SOS({ 
+const r = return new Registry({ 
 	url: <Host of Etcd instance>,
 	ca: fs.readFileSync("/path/to.cert.ca")
 })
@@ -33,9 +33,9 @@ const so = return new SOS({
 Alternatively, if you wish to ignore the SSL requirements, use `strictSSL: false`:
 
 ```javascript
-const SO = require('simple-orchestration-js')
+const Registry = require('simple-service-registry')
 
-const so = return new SOS({ 
+const r = return new Registry({ 
 	url: <Host of Etcd instance>,
 	strictSSL: false
 })
@@ -43,7 +43,7 @@ const so = return new SOS({
 
 ## Methods
 
-There are a number of methods to help with the orchestration of services and configuration.
+There are a number of methods to help with the registration and discovery of services and configuration parameters.
 
 ### .register( namespace, serviceName, serviceConfig, opts )
 The `.register()` method will register a service in Etcd.
@@ -58,7 +58,7 @@ const serviceConfig = {
   hostname: "http://search.example.com",
   api_key: "mylittlesecret"
 }
-so.register("production", "search-api", serviceConfig, { ttl: 30 })
+r.register("production", "search-api", serviceConfig, { ttl: 30 })
 ```
 
 The `.register()` method will register this service against Etcd every 10 seconds by default (or by the defined `ttl`). This means that once your app is stopped, the registration will expire within this time frame.
@@ -73,7 +73,7 @@ This method returns an EventEmitter with events on:
 * `delete` - when a service registration is deleted
 
 ```javascript
-so.service("production", "search-api")
+r.service("production", "search-api")
 .on("set", data => {
 	// handle set event
 })
@@ -89,7 +89,7 @@ so.service("production", "search-api")
 The `.setEnv()` method will set an environment parameter inside the provided `namespace`.
 
 ```javascript
-so.setEnv("production", "support-email", "support@example.com", (err, data) => {
+r.setEnv("production", "support-email", "support@example.com", (err, data) => {
 	// handle optional callback
 });
 ```
@@ -104,7 +104,7 @@ This method returns an EventEmitter with events on:
 * `delete` - when a service registration is deleted
 
 ```javascript
-getEnv("production", "support-email")
+r.getEnv("production", "support-email")
 .on("set", data => {
 	// handle set event
 })
