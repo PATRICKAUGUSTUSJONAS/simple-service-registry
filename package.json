@@ -1,6 +1,6 @@
 {
   "name": "simple-service-registry",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Simple wrapper around Etcd to help with the registration/discovery of distributed services and configuration",
   "main": "index.js",
   "scripts": {
