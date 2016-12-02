@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MattCollins84/simple-service-registry.git"
+    "url": "git+https://github.com/ibm-cds-labs/simple-service-registry.git"
   },
   "keywords": [
     "etcd",
@@ -21,9 +21,9 @@
   "author": "Matt Collins <matt@strikesandgutters.com>",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/MattCollins84/simple-service-registry/issues"
+    "url": "https://github.com/ibm-cds-labs/simple-service-registry/issues"
   },
-  "homepage": "https://github.com/MattCollins84/simple-service-registry#readme",
+  "homepage": "https://github.com/ibm-cds-labs/simple-service-registry#readme",
   "dependencies": {
     "node-etcd": "^5.0.3",
     "underscore": "^1.8.3"
